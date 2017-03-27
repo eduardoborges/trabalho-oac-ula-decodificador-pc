@@ -8,17 +8,14 @@ class Computador {
 
 	public int calc(int operation, int a, int b){
 		switch (operation) {
-			case "1":
-				return soma();
-				break;
-			case "2":
-				return sub();
-				break;
-			case "3":
-				return div();
-				break;
+			case 1:
+				return soma(a,b);
+			case 2:
+				return sub(a,b);
+			case 3:
+				return div(a,b);
 			default:
-				break;
+				return 0;
 		}
 	}
 

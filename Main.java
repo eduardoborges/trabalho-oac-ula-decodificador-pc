@@ -1,18 +1,23 @@
 class Main {
 	public static void main(String[] args) {
 		int[] memoria = new int[]{
-			0b10100111,
-			0b10100001,
-			0b10100001
+			0b01000000000000000000101000000011, // 1 - 10 - 3
+			0b10000000000000000000001100001010, // 2 - 3 - 10
+			0b11000000000000000000010100001111  // 3 - 4 - 15
 		};
 
-		Computador computador  = new Computador(memoria);
+		// Computador computador  = new Computador(memoria);
 
-		int bin 		= 0b01000000000000000000000000100001;
-		int operator 	= Decodificador.getOperator(bin);
-		int number 		= Decodificador.getNumber(bin);
+		for (int code:memoria) {
 
-		System.out.println(operator);
-		System.out.println(number);
+			int operator 		= Decodificador.getOperator(code);
+			int firstNumber 	= Decodificador.getFirstNumber(code);
+			int lastNumber 		= Decodificador.getLastNumber(code);
+
+			System.out.println(operator + " " + firstNumber + " " + lastNumber);
+		}
+
+
+		
 	}
 }
