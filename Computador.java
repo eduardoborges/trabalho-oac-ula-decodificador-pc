@@ -35,4 +35,15 @@ class Computador {
 		// nao sei o que esta poha faz
 	}
 
+	public void run(){
+		for (int code:this.MEMORIA) {
+			int operator 		= Decodificador.getOperator(code);
+			int firstNumber 	= Decodificador.getFirstNumber(code);
+			int lastNumber 		= Decodificador.getLastNumber(code);
+			int result 			= calc(operator, firstNumber, lastNumber);
+			System.out.println("OPERAÇÃO: " + operator + " | RESULTADO: "+ result +" | OPERANDOS: "+ firstNumber +" e "+ lastNumber);
+			System.out.println();
+		}
+	}
+
 }
