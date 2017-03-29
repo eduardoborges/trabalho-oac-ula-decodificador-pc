@@ -1,6 +1,7 @@
 class Computador {
 	
-	public int[] MEMORIA = new int[]{};
+	private int[] MEMORIA = new int[]{};
+	private int PC = 0;
 
 	Computador(int[] memoria){
 		this.MEMORIA = memoria;
@@ -14,6 +15,8 @@ class Computador {
 				return sub(a,b);
 			case 3:
 				return div(a,b);
+			case 4:
+				jump(a);
 			default:
 				return 0;
 		}
@@ -30,13 +33,15 @@ class Computador {
 	public int div(int a, int b){
 		return a / b;
 	}
-
-	public void jump(){
-		// nao sei o que esta poha faz
+	public void jump(int pos){
+		this.PC = pos;
 	}
 
 	public void run(){
-		for (int code:this.MEMORIA) {
+
+		for (this.PC = 0; this.PC <= this.MEMORIA.length; this.PC++ ){
+			int code = this.MEMORIA[this.PC];
+
 			int operator 		= Decodificador.getOperator(code);
 			int firstNumber 	= Decodificador.getFirstNumber(code);
 			int lastNumber 		= Decodificador.getLastNumber(code);
